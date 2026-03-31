@@ -82,13 +82,14 @@ export default function Footer() {
 
           {/* Social */}
           <div className="flex gap-4 mt-4 text-[rgba(255,255,255,0.8)]">
-            {socialLinks.map((link) => (
-              <span
-                key={link.href}
+            {socialLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
                 className="cursor-pointer hover:text-(--primary-light) transition"
               >
                 {link.label}
-              </span>
+              </a>
             ))}
           </div>
         </div>

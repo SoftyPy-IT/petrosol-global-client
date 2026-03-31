@@ -8,10 +8,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full bg-(--background) shadow-md border-b border-(--border)">
-
-      <TopBar />
-
+    <div className="w-full bg-(--background) shadow-md border-b border-(--border) sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
 
         {/* Logo */}

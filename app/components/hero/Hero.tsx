@@ -1,96 +1,111 @@
-import React from "react";
+"use client";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, EffectFade } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+import Image from "next/image";
 
 export default function Hero() {
+
+  const slides = [
+    {
+      title: "Powering the Future of",
+      highlight: "Sustainable Energy",
+      desc: "We deliver innovative solar and renewable energy solutions that drive sustainability and long-term global impact.",
+      img: "https://images.unsplash.com/photo-1509391366360-2e959784a276",
+    },
+    {
+      title: "Building World-Class",
+      highlight: "Infrastructure",
+      desc: "From concept to execution, we develop modern infrastructure that supports economic growth and global connectivity.",
+      img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+    },
+    {
+      title: "Driving Innovation in",
+      highlight: "Logistics & Operations",
+      desc: "Smart logistics systems and efficient operations ensuring seamless supply chains across international markets.",
+      img: "https://images.unsplash.com/photo-1413882353314-73389f63b6fd",
+    },
+  ];
+
   return (
-    <section className="relative bg-(--background)">
+    <section className="relative w-full h-[85vh] md:h-[90vh]">
 
-      <div className="max-w-7xl mx-auto px-4 py-24 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+      <Swiper
+        modules={[Autoplay, Pagination, EffectFade]}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        effect="fade"
+        loop={true}
+        speed={1000}
+        className="h-full"
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
 
-        {/* ================= LEFT CONTENT ================= */}
-        <div>
+            {/* Background Image */}
+            <div className="relative w-full h-full">
 
-          <p className="text-[var(--primary-dark)] font-semibold mb-3">
-            Energy • Infrastructure • Global Solutions
-          </p>
+              <Image
+                src={slide.img}
+                alt="Hero"
+                fill
+                className="absolute w-full h-full object-cover"
+              />
 
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-[var(--text-dark)]">
-            Powering the Future of <br />
-            <span className="text-[var(--primary-dark)]">
-              Sustainable Energy
-            </span>
-          </h1>
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/40 to-transparent" />
 
-          <p className="mt-6 text-[var(--text-dark)]/80 text-base leading-7">
-            PetroSol Global delivers world-class solutions in solar energy,
-            infrastructure development, port operations, and logistics —
-            building a smarter and greener future worldwide.
-          </p>
+              {/* Content */}
+              <div className="relative z-10 max-w-7xl mx-auto px-4 h-full flex items-center">
 
-          {/* Buttons */}
-          <div className="mt-8 flex flex-wrap gap-4">
+                <div className="max-w-xl text-white">
 
-            <a
-              href="/projects"
-              className="bg-[var(--primary-dark)] text-white px-6 py-3 rounded-lg hover:bg-[var(--primary)] transition"
-            >
-              Explore Projects
-            </a>
+                  <p className="text-(--primary-light) font-semibold mb-3">
+                    Energy • Infrastructure • Global Solutions
+                  </p>
 
-            <a
-              href="/contact"
-              className="border border-[var(--primary-dark)] text-[var(--primary-dark)] px-6 py-3 rounded-lg hover:bg-[var(--primary-dark)] hover:text-white transition"
-            >
-              Contact Us
-            </a>
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl leading-tight font-(--font-heading)">
+                    {slide.title} <br />
+                    <span className="text-(--primary-light)">
+                      {slide.highlight}
+                    </span>
+                  </h1>
 
-          </div>
+                  <p className="mt-6 text-white/80 text-sm sm:text-base leading-7">
+                    {slide.desc}
+                  </p>
 
-          {/* Stats */}
-          <div className="mt-10 grid grid-cols-3 gap-6 text-center">
+                  {/* Buttons */}
+                  <div className="mt-8 flex flex-wrap gap-4">
 
-            <div>
-              <h3 className="text-2xl font-bold text-[var(--primary-dark)]">10+</h3>
-              <p className="text-sm text-gray-600">Years Experience</p>
+                    <a
+                      href="/projects"
+                      className="bg-(--primary) text-white px-6 py-3 rounded-lg hover:bg-(--primary-dark) transition"
+                    >
+                      Explore Projects
+                    </a>
+
+                    <a
+                      href="/contact"
+                      className="border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition"
+                    >
+                      Contact Us
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
             </div>
 
-            <div>
-              <h3 className="text-2xl font-bold text-[var(--primary-dark)]">50+</h3>
-              <p className="text-sm text-gray-600">Global Projects</p>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-bold text-[var(--primary-dark)]">20+</h3>
-              <p className="text-sm text-gray-600">Partners</p>
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* ================= RIGHT IMAGE ================= */}
-        <div className="relative">
-
-          <div className="rounded-2xl overflow-hidden shadow-lg border border-[var(--border)]">
-
-            <img
-              src="https://images.unsplash.com/photo-1509391366360-2e959784a276"
-              alt="Energy Infrastructure"
-              className="w-full h-full object-cover"
-            />
-
-          </div>
-
-          {/* Floating Card */}
-          <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-md border border-[var(--border)]">
-
-            <p className="text-sm text-gray-600">Active Projects</p>
-            <p className="text-xl font-bold text-[var(--primary-dark)]">24/7 Global Operations</p>
-
-          </div>
-
-        </div>
-
-      </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
     </section>
   );
