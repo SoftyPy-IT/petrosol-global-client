@@ -4,59 +4,50 @@
 @import "swiper/css/autoplay";
 
 :root {
-  /* Main Brand Colors */
+  /* 🎨 Colors */
   --primary-dark: #346739;
   --primary: #79AE6F;
   --primary-light: #9FCB98;
   --background: #F2EDC2;
 
-  /* Optional semantic aliases */
+  /* 📝 Text */
   --text-dark: #1f2a1f;
   --text-light: #ffffff;
 
+  /* 🧱 UI */
   --border: rgba(52, 103, 57, 0.2);
   --shadow: rgba(0, 0, 0, 0.1);
+
+  /* 🔤 Fonts (Make sure these exist in layout.tsx) */
   --font-body: var(--font-noto-sans);
   --font-heading: var(--font-playfair);
 }
 
-/* Body styling */
+/* 🌍 Base styles */
 body {
   font-family: var(--font-body);
 }
 
-/* Utility classes */
-.bg-primary-dark {
-  background-color: var(--primary-dark);
-}
+/* 🧩 Reusable Utilities */
+.bg-primary-dark { background-color: var(--primary-dark); }
+.bg-primary { background-color: var(--primary); }
+.bg-primary-light { background-color: var(--primary-light); }
 
-.bg-primary {
-  background-color: var(--primary);
-}
+.text-primary-dark { color: var(--primary-dark); }
+.text-primary { color: var(--primary); }
+.text-primary-light { color: var(--primary-light); }
 
-.bg-primary-light {
-  background-color: var(--primary-light);
-}
+/* 🧱 Border & Shadow helpers */
+.border-theme { border-color: var(--border); }
+.shadow-theme { box-shadow: 0 4px 12px var(--shadow); }
 
-.text-primary-dark {
-  color: var(--primary-dark);
-}
-
-.text-primary {
-  color: var(--primary);
-}
-
-.text-primary-light {
-  color: var(--primary-light);
-}
-
-/* Buttons */
+/* 🔘 Buttons */
 .btn {
   padding: 10px 16px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .btn-primary {
@@ -68,11 +59,16 @@ body {
   background-color: var(--primary-dark);
 }
 
-/* Card style */
+/* 🪪 Card */
 .card {
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px var(--shadow);
   border: 1px solid var(--border);
   padding: 16px;
+}
+
+/* 🧠 Heading Font Utility (SAFE FIX) */
+.font-heading {
+  font-family: var(--font-heading);
 }

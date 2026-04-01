@@ -1,20 +1,21 @@
 "use client";
 import { useState } from "react";
 import { navLinks } from "./navlinks";
-import TopBar from "./TopBar";
 import Link from "next/link";
+import logo from "@/public/asset/logo/PetroSol_Global_Logo.png";
+import Image from "next/image";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full bg-(--background) shadow-md border-b border-(--border) sticky top-0 z-50">
+    <div className="w-full bg-(--background)  border-b border-(--border) sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
 
         {/* Logo */}
         <div className="text-xl font-bold text-(--primary-dark)">
           <Link href="/">
-            PetroSol Global
+            <Image src={logo} alt="Logo" width={100} height={100} />
           </Link>
         </div>
 

@@ -1,123 +1,150 @@
 import Image from "next/image";
+import { Layers } from "lucide-react";
 
 export default function About() {
+  const features = [
+    { title: "Innovation", desc: "Advanced energy and infrastructure solutions." },
+    { title: "Sustainability", desc: "Eco-friendly and long-term focused projects." },
+    { title: "Global Reach", desc: "Operations across multiple countries." },
+    { title: "Reliability", desc: "Trusted by international partners." },
+  ];
+
   return (
     <section className="relative py-24 overflow-hidden bg-white">
 
-      {/* 🔥 TOP SVG SHAPE */}
-      <div className="absolute top-0 left-0 w-full -z-10">
-        <svg
-          viewBox="0 0 1440 320"
-          className="w-full"
-        >
-          <path
-            fill="rgba(121,174,111,0.15)"
-            d="M0,160L80,165.3C160,171,320,181,480,165.3C640,149,800,107,960,112C1120,117,1280,171,1360,197.3L1440,224V0H0Z"
-          ></path>
+      {/* Wave — top */}
+      <div className="absolute top-0 left-0 w-full -z-10 pointer-events-none">
+        <svg viewBox="0 0 1440 160" className="w-full" style={{ height: "80px" }} preserveAspectRatio="none">
+          <path fill="rgba(121,174,111,0.13)"
+            d="M0,80L80,85C160,91,320,101,480,90C640,79,800,47,960,50C1120,53,1280,91,1360,107L1440,122V0H0Z" />
         </svg>
       </div>
 
-      {/* 🔥 BOTTOM SVG SHAPE */}
-      <div className="absolute bottom-0 left-0 w-full -z-10">
-        <svg
-          viewBox="0 0 1440 320"
-          className="w-full"
-        >
-          <path
-            fill="rgba(52,103,57,0.08)"
-            d="M0,96L80,117.3C160,139,320,181,480,186.7C640,192,800,160,960,144C1120,128,1280,128,1360,128L1440,128V320H0Z"
-          ></path>
+      {/* Wave — bottom */}
+      <div className="absolute bottom-0 left-0 w-full -z-10 pointer-events-none">
+        <svg viewBox="0 0 1440 160" className="w-full" style={{ height: "80px" }} preserveAspectRatio="none">
+          <path fill="rgba(52,103,57,0.07)"
+            d="M0,48L80,58C160,69,320,91,480,93C640,96,800,80,960,72C1120,64,1280,64,1360,64L1440,64V160H0Z" />
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {/* Dot texture */}
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.12] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(var(--primary-dark) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          maskImage: "radial-gradient(ellipse 60% 70% at 80% 50%, black 30%, transparent 80%)",
+        }}
+      />
 
-        {/* ================= IMAGE ================= */}
-        <div className="relative h-[400px] md:h-[500px]">
+      <div className="relative max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-14 items-center z-10">
 
-          <Image
-            src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc"
-            alt="About PetroSol Global"
-            fill
-            className="rounded-2xl shadow-lg border border-[var(--border)] object-cover"
-          />
+        {/* ── IMAGE COLUMN ── */}
+        <div className="relative">
 
-          {/* Floating Badge */}
-          <div className="absolute -bottom-6 -right-6 bg-[var(--primary-dark)] text-white p-4 rounded-xl shadow-md">
-            <p className="text-sm">Trusted Company</p>
-            <p className="text-lg font-bold">Global Standards</p>
+          {/* Top-left stat chip */}
+          <div className="absolute -top-5 -left-5 z-20 bg-white border border-[var(--border)] rounded-2xl px-4 py-3 shadow-md flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center"
+              style={{ background: "rgba(121,174,111,0.15)" }}>
+              <Layers size={16} style={{ color: "var(--primary-dark)" }} strokeWidth={1.8} />
+            </div>
+            <div>
+              <p className="text-lg font-bold leading-none" style={{ color: "var(--primary-dark)", fontFamily: "var(--font-heading)" }}>15+</p>
+              <p className="text-[11px] mt-0.5 tracking-wide uppercase" style={{ color: "rgba(31,42,31,0.5)", fontFamily: "var(--font-body)" }}>
+                Countries Served
+              </p>
+            </div>
+          </div>
+
+          {/* Main image */}
+          <div className="relative h-[420px] md:h-[520px] rounded-2xl overflow-hidden border border-[var(--border)] shadow-lg">
+            <Image
+              src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800&q=80"
+              alt="PetroSol Global operations"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          {/* Bottom-right floating badge */}
+          <div
+            className="absolute -bottom-5 -right-5 z-20 rounded-2xl p-4 shadow-lg"
+            style={{ background: "var(--primary-dark)", minWidth: "175px" }}
+          >
+            <p className="text-[11px] uppercase tracking-widest opacity-70 text-white"
+              style={{ fontFamily: "var(--font-body)" }}>
+              Trusted Company
+            </p>
+            <p className="text-lg font-bold text-white mt-0.5"
+              style={{ fontFamily: "var(--font-heading)" }}>
+              Global Standards
+            </p>
           </div>
 
         </div>
 
-        {/* ================= CONTENT ================= */}
-        <div>
+        {/* ── CONTENT COLUMN ── */}
+        <div className="pt-4 md:pt-0">
 
-          <p className="text-[var(--primary-dark)] font-semibold mb-3">
-            About PetroSol Global
-          </p>
+          {/* Eyebrow */}
+          <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border"
+            style={{ background: "rgba(121,174,111,0.12)", borderColor: "var(--primary)" }}>
+            <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--primary-dark)" }} />
+            <span className="text-xs font-bold tracking-widest uppercase"
+              style={{ color: "var(--primary-dark)", fontFamily: "var(--font-body)" }}>
+              About Us
+            </span>
+          </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-dark)] leading-tight font-[var(--font-heading)]">
-            Building Sustainable Infrastructure for a
-            <span className="text-[var(--primary-dark)]"> Better Future</span>
+          {/* Heading */}
+          <h2
+            className="text-3xl md:text-4xl font-bold leading-tight mb-5"
+            style={{ color: "var(--text-dark)", fontFamily: "var(--font-heading)", letterSpacing: "-0.02em" }}
+          >
+            Building Sustainable Infrastructure for a{" "}
+            <span className="relative inline-block" style={{ color: "var(--primary-dark)" }}>
+              Better Future
+              <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 9"
+                preserveAspectRatio="none" style={{ height: "9px" }}>
+                <path d="M2,7 Q50,1 100,6 Q150,11 198,4"
+                  fill="none" stroke="var(--primary)" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </span>
           </h2>
 
-          <p className="mt-6 text-gray-600 leading-7">
-            PetroSol Global is a leading energy and infrastructure company
-            specializing in solar energy solutions, port operations,
-            terminal management, and logistics services.
+          {/* Body */}
+          <p className="text-sm leading-7 mb-3" style={{ color: "rgba(31,42,31,0.6)", fontFamily: "var(--font-body)" }}>
+            PetroSol Global is a leading energy and infrastructure company specialising in solar energy solutions, supply chain management, ship handling, berth operating, human resources, and terminal operating management.
+          </p>
+          <p className="text-sm leading-7" style={{ color: "rgba(31,42,31,0.6)", fontFamily: "var(--font-body)" }}>
+            We are committed to innovation, sustainability, and delivering long-term value across global markets — partnering with governments, port authorities, and enterprises worldwide.
           </p>
 
-          <p className="mt-4 text-gray-600 leading-7">
-            We are committed to innovation, sustainability, and delivering
-            long-term value across global markets.
-          </p>
+          {/* Divider */}
+          <div className="my-6 h-px"
+            style={{ background: "linear-gradient(90deg, var(--primary-dark), var(--primary), transparent)" }} />
 
-          {/* Features */}
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-            <div className="p-4 rounded-lg bg-white border border-[var(--border)] shadow-sm hover:shadow-md transition">
-              <h4 className="font-semibold text-[var(--primary-dark)]">
-                Innovation
-              </h4>
-              <p className="text-sm text-gray-600">
-                Advanced energy and infrastructure solutions.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-lg bg-white border border-[var(--border)] shadow-sm hover:shadow-md transition">
-              <h4 className="font-semibold text-[var(--primary-dark)]">
-                Sustainability
-              </h4>
-              <p className="text-sm text-gray-600">
-                Eco-friendly and long-term focused projects.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-lg bg-white border border-[var(--border)] shadow-sm hover:shadow-md transition">
-              <h4 className="font-semibold text-[var(--primary-dark)]">
-                Global Reach
-              </h4>
-              <p className="text-sm text-gray-600">
-                Operations across multiple countries.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-lg bg-white border border-[var(--border)] shadow-sm hover:shadow-md transition">
-              <h4 className="font-semibold text-[var(--primary-dark)]">
-                Reliability
-              </h4>
-              <p className="text-sm text-gray-600">
-                Trusted by international partners.
-              </p>
-            </div>
-
+          {/* Feature grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {features.map((f, i) => (
+              <div key={i}
+                className="relative bg-white border border-[var(--border)] rounded-xl p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 overflow-hidden"
+              >
+                {/* Left accent bar */}
+                <div className="absolute left-0 top-0 w-[3px] h-full rounded-l-xl"
+                  style={{ background: "var(--primary)" }} />
+                <h4 className="text-sm font-bold mb-1 pl-1" style={{ color: "var(--primary-dark)", fontFamily: "var(--font-body)" }}>
+                  {f.title}
+                </h4>
+                <p className="text-xs leading-relaxed pl-1" style={{ color: "rgba(31,42,31,0.55)", fontFamily: "var(--font-body)" }}>
+                  {f.desc}
+                </p>
+              </div>
+            ))}
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }
