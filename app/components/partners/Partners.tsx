@@ -127,19 +127,6 @@ export default function Partners() {
           <MarqueeRow items={partners.slice(3)} reverse />
         </div>
 
-        {/* CTA */}
-        <div className="mt-12 text-center">
-          <p className="text-sm mb-4" style={{ color: "rgba(31,42,31,0.5)", fontFamily: "var(--font-body)" }}>
-            Interested in partnering with PetroSol Global?
-          </p>
-          <button
-            className="btn btn-primary inline-flex items-center gap-2 text-sm font-semibold"
-            style={{ fontFamily: "var(--font-body)", paddingLeft: "24px", paddingRight: "24px" }}
-          >
-            Become a Partner <ArrowUpRight size={14} />
-          </button>
-        </div>
-
       </div>
 
       {/* Keyframe animations */}
