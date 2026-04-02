@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const ALL_TAGS = ["All", "Energy", "Infrastructure", "Logistics", "Sustainability", "Technology"];
@@ -156,7 +157,7 @@ export default function Projects() {
         >
           {filtered.map((project, i) => (
             <SwiperSlide key={i}>
-              <div className="group bg-white rounded-2xl overflow-hidden border border-[var(--border)] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 h-full flex flex-col">
+              <div className="group bg-white rounded-2xl overflow-hidden border border-(--border) shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 h-full flex flex-col">
 
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -192,14 +193,16 @@ export default function Projects() {
                   </p>
 
                   {/* Bottom accent bar on hover */}
-                  <div className="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between">
-                    <button
-                      className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-gap duration-200"
-                      style={{ color: "var(--primary-dark)", fontFamily: "var(--font-body)", background: "none", border: "none", cursor: "pointer", padding: 0 }}
-                    >
-                      View Details <ArrowUpRight size={12} />
-                    </button>
-                  </div>
+                  <Link href={`/activities/${i}`}>
+                    <div className="mt-4 pt-4 border-t border-(--border) flex items-center justify-between">
+                      <button
+                        className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-gap duration-200"
+                        style={{ color: "var(--primary-dark)", fontFamily: "var(--font-body)", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+                      >
+                        View Details <ArrowUpRight size={12} />
+                      </button>
+                    </div>
+                  </Link>
                 </div>
 
               </div>

@@ -9,7 +9,7 @@ import Services from "../components/services/Services";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Hero />
       <About />
       <Services />
@@ -18,6 +18,6 @@ export default function Home() {
       <Leadership />
       <Partners />
       <Blog />
-    </div>
+    </>
   );
 }

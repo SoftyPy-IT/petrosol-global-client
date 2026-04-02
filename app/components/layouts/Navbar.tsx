@@ -1,53 +1,56 @@
-"use client";
-import { useState } from "react";
-import { navLinks } from "./navlinks";
-import Link from "next/link";
-import logo from "@/public/asset/logo/PetroSol_Global_Logo.png";
-import Image from "next/image";
+"use client"
+import { useState } from "react"
+import { usePathname } from "next/navigation"
+import { navLinks } from "./navlinks"
+import Link from "next/link"
+import Image from "next/image"
+import logo from "@/public/asset/logo/logo-without-bg.png"
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
-    <div className="w-full bg-(--background)  border-b border-(--border) sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+    <div className="w-full bg-(--background) border-b border-(--border) sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
 
         {/* Logo */}
-        <div className="text-xl font-bold text-(--primary-dark)">
-          <Link href="/">
-            <Image src={logo} alt="Logo" width={100} height={100} />
-          </Link>
-        </div>
+        <Link href="/">
+          <Image src={logo} alt="Logo" width={70} height={70} />
+        </Link>
 
-        {/* Desktop Links */}
+        {/* Desktop */}
         <nav className="hidden md:flex gap-6">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-(--text-dark) hover:text-(--primary-dark) font-medium transition"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`
+                  font-medium transition
+                  ${isActive
+                    ? "text-(--primary-dark) border-b-2 border-(--primary-dark)"
+                    : "text-(--text-dark) hover:text-(--primary-dark)"
+                  }
+                `}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
         </nav>
 
         {/* CTA */}
-        <a
+        <Link
           href="/contact"
-          className="
-            hidden md:block
-            bg-(--primary-dark)
-            text-(--text-light)
-            px-5 py-2 rounded-lg
-            hover:bg-(--primary)
-            transition
-          "
+          className="hidden md:block bg-(--primary-dark) text-(--text-light) px-5 py-2 rounded-lg hover:bg-(--primary) transition"
         >
-          Get Quote
-        </a>
+          Get In Touch
+        </Link>
 
-        {/* Mobile Button */}
+        {/* Mobile */}
         <button
           className="md:hidden text-2xl text-(--primary-dark)"
           onClick={() => setOpen(!open)}
@@ -59,32 +62,25 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden border-t border-(--border) px-4 py-3 space-y-3 bg-white">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href
 
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="block text-[var(--text-dark)] hover:text-[var(--primary-dark)]"
-              onClick={() => setOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
-
-          <a
-            href="/contact"
-            className="
-              block text-center
-              bg-[var(--primary-dark)]
-              text-white py-2 rounded-lg
-              hover:bg-[var(--primary)]
-              transition
-            "
-          >
-            Get Quote
-          </a>
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`block font-medium ${isActive
+                    ? "text-(--primary-dark) font-bold"
+                    : "text-(--text-dark)"
+                  }`}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
         </div>
       )}
     </div>
-  );
+  )
 }

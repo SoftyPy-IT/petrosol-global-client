@@ -10,8 +10,7 @@ export type TNavLinks = {
 export const navLinks: TNavLinks[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Projects", href: "/projects" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Activities", href: "/activities" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
 ];

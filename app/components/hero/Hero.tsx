@@ -1,9 +1,6 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import Image from "next/image";
 
@@ -82,7 +79,7 @@ export default function Hero() {
                   <div className="mt-8 flex flex-wrap gap-4">
 
                     <a
-                      href="/projects"
+                      href="/activities"
                       className="bg-(--primary) text-white px-6 py-3 rounded-lg hover:bg-(--primary-dark) transition"
                     >
                       Explore Projects

@@ -1,4 +1,4 @@
-import { Sun, Building2, Ship, Cpu, Truck, Lightbulb, ArrowUpRight } from "lucide-react";
+import { Sun, Building2, Ship, Cpu, Truck, Lightbulb } from "lucide-react";
 
 export default function Services() {
   const services = [
@@ -41,7 +41,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="relative py-10 overflow-hidden bg-[var(--background)]">
+    <section className="relative py-10 overflow-hidden bg-(--background)">
 
       {/* Subtle dot pattern overlay */}
       <div
