@@ -1,32 +1,59 @@
 "use client"
+
+import Photo from '@/app/components/gallery/Photo'
+import Video from '@/app/components/gallery/Video'
 import Container from '@/app/components/shared/utils/Container'
 import SectionHeader from '@/app/components/shared/utils/SectionHeader'
 import { useState } from 'react'
 
-export default function page() {
-
-  const [tab, setTab] = useState("photo")
+export default function Page() {
+  const [tab, setTab] = useState<"photo" | "video">("photo")
 
   return (
-    <Container className='py-10'>
-      <div className='mb-10'>
+    <Container className="py-10">
+      {/* Header */}
+      <div className="mb-10">
         <SectionHeader
           title="Gallery"
           description="Explore our gallery of projects and events."
         />
       </div>
-      <div>
-        <div className='flex items-center gap-5'>
-          <button onClick={() => setTab("photo")} className={`px-4 py-2 rounded-lg border border-theme text-sm
-          hover:bg-primary transition ${tab === "photo" ? "bg-primary text-white" : ""}`}>
-            Photo
+
+      {/* 🔥 Tabs */}
+      <div className="flex justify-center mb-8">
+        <div className="flex bg-gray-100 p-1 rounded-full shadow-sm">
+
+          <button
+            onClick={() => setTab("photo")}
+            className={`px-6 py-2 text-sm font-medium rounded-full transition-all duration-300
+              ${tab === "photo"
+                ? "bg-primary text-white shadow"
+                : "text-gray-600 hover:text-primary"
+              }`}
+          >
+            Photos
           </button>
-          <button onClick={() => setTab("video")} className={`px-4 py-2 rounded-lg border border-theme text-sm
-          hover:bg-primary transition ${tab === "video" ? "bg-primary text-white" : ""}`}>
-            Video
+
+          <button
+            onClick={() => setTab("video")}
+            className={`px-6 py-2 text-sm font-medium rounded-full transition-all duration-300
+              ${tab === "video"
+                ? "bg-primary text-white shadow"
+                : "text-gray-600 hover:text-primary"
+              }`}
+          >
+            Videos
           </button>
+
         </div>
       </div>
+
+      {/* 🔥 Content */}
+      <div className="mt-6">
+        {tab === "photo" && <Photo />}
+        {tab === "video" && <Video />}
+      </div>
+
     </Container>
   )
 }

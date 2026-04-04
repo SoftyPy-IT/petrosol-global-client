@@ -26,8 +26,8 @@ function useCountUp(end: number, duration: number = 2000) {
 
 export default function Stats() {
   const stats = [
-    { number: 10, suffix: "+", label: "Years Experience" },
-    { number: 50, suffix: "+", label: "Global Projects" },
+    { number: 2, suffix: "+", label: "Years Experience" },
+    { number: 10, suffix: "+", label: "Global Projects" },
     { number: 20, suffix: "+", label: "International Partners" },
     { number: 100, suffix: "%", label: "Client Satisfaction" },
   ];

@@ -50,7 +50,7 @@ export default function About() {
               <Layers size={16} style={{ color: "var(--primary-dark)" }} strokeWidth={1.8} />
             </div>
             <div>
-              <p className="text-lg font-bold leading-none" style={{ color: "var(--primary-dark)", fontFamily: "var(--font-heading)" }}>15+</p>
+              <p className="text-lg font-bold leading-none" style={{ color: "var(--primary-dark)", fontFamily: "var(--font-heading)" }}>10+</p>
               <p className="text-[11px] mt-0.5 tracking-wide uppercase" style={{ color: "rgba(31,42,31,0.5)", fontFamily: "var(--font-body)" }}>
                 Countries Served
               </p>

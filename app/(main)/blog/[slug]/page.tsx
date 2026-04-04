@@ -29,7 +29,7 @@ The future of infrastructure is sustainable, efficient, and powered by clean ene
 
   return (
     <Container className="py-10">
-      <div className="max-w-4xl mx-auto">
+      <div>
 
         {/* 🔥 HERO IMAGE (FIXED) */}
         <div className="relative w-full h-[280px] md:h-[420px] rounded-2xl overflow-hidden mb-8">

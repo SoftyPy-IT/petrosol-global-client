@@ -30,7 +30,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <Container className="py-10">
-      <div className="max-w-5xl mx-auto">
+      <div>
 
         {/* 🔥 Image */}
         <div className="relative w-full h-[250px] md:h-[400px] rounded-2xl overflow-hidden mb-8">
