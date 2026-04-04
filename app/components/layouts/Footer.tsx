@@ -4,6 +4,7 @@ import Link from "next/link";
 import logo from "@/public/asset/logo/image.png";
 import Image from "next/image";
 import Container from "../shared/utils/Container";
+import { socialLinks } from "./social-links";
 
 const navLinks = [
   { label: "Activities", href: "/activities" },
@@ -56,20 +57,18 @@ export default function Footer() {
             </p>
 
             <div className="flex gap-3">
-              {[
-                { icon: <FaFacebookF />, label: "Facebook" },
-                { icon: <FaLinkedinIn />, label: "LinkedIn" },
-                { icon: <FaTwitter />, label: "Twitter" },
-              ].map(({ icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  aria-label={label}
-                  className="w-9 h-9 rounded-md border border-white/15 flex items-center justify-center text-white/60 transition-all duration-300 hover:bg-[--primary] hover:text-white hover:border-[--primary]"
-                >
-                  {icon}
-                </a>
-              ))}
+              {
+                socialLinks.map(({ icon, label, href }) => (
+                  <Link
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    className="w-9 h-9 rounded-md border border-white/15 flex items-center justify-center text-white/60 transition-all duration-300 hover:bg-[--primary] hover:text-white hover:border-[--primary]"
+                  >
+                    {icon}
+                  </Link>
+                ))
+              }
             </div>
           </div>
 

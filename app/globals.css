@@ -1,14 +1,15 @@
-@import "tailwindcss";
-@import "swiper/css";
-@import "swiper/css/pagination";
-@import "swiper/css/autoplay";
+@import 'tailwindcss';
+
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/autoplay';
 
 :root {
   /* 🎨 Colors */
   --primary-dark: #346739;
-  --primary: #79AE6F;
-  --primary-light: #9FCB98;
-  --background: #F2EDC2;
+  --primary: #79ae6f;
+  --primary-light: #9fcb98;
+  --background: #f2edc2;
 
   /* 📝 Text */
   --text-dark: #1f2a1f;
@@ -29,17 +30,33 @@ body {
 }
 
 /* 🧩 Reusable Utilities */
-.bg-primary-dark { background-color: var(--primary-dark); }
-.bg-primary { background-color: var(--primary); }
-.bg-primary-light { background-color: var(--primary-light); }
+.bg-primary-dark {
+  background-color: var(--primary-dark);
+}
+.bg-primary {
+  background-color: var(--primary);
+}
+.bg-primary-light {
+  background-color: var(--primary-light);
+}
 
-.text-primary-dark { color: var(--primary-dark); }
-.text-primary { color: var(--primary); }
-.text-primary-light { color: var(--primary-light); }
+.text-primary-dark {
+  color: var(--primary-dark);
+}
+.text-primary {
+  color: var(--primary);
+}
+.text-primary-light {
+  color: var(--primary-light);
+}
 
 /* 🧱 Border & Shadow helpers */
-.border-theme { border-color: var(--border); }
-.shadow-theme { box-shadow: 0 4px 12px var(--shadow); }
+.border-theme {
+  border-color: var(--border);
+}
+.shadow-theme {
+  box-shadow: 0 4px 12px var(--shadow);
+}
 
 /* 🔘 Buttons */
 .btn {

@@ -22,7 +22,7 @@ export default function Video() {
       id: "1",
       title: "Project Overview",
       shortDescription: "Introduction to our latest project.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://www.youtube.com/embed/B9VRvOKKwfs",
       thumbnail:
         "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&q=80",
     },
@@ -30,7 +30,7 @@ export default function Video() {
       id: "2",
       title: "Development Process",
       shortDescription: "How we build modern applications.",
-      videoUrl: "https://www.youtube.com/embed/3JZ_D3ELwOQ",
+      videoUrl: "https://www.youtube.com/embed/KLuTLF3x9sA",
       thumbnail:
         "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1200&q=80",
     },
@@ -38,7 +38,7 @@ export default function Video() {
       id: "3",
       title: "Team Collaboration",
       shortDescription: "Behind the scenes teamwork.",
-      videoUrl: "https://www.youtube.com/embed/tgbNymZ7vqY",
+      videoUrl: "https://www.youtube.com/embed/B9VRvOKKwfs",
       thumbnail:
         "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
     },
@@ -116,7 +116,7 @@ export default function Video() {
         <div className="space-y-5">
 
           {/* YOUTUBE IFRAME */}
-          <div className="relative w-full aspect-square rounded-xl overflow-hidden">
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden">
             <iframe
               src={current.videoUrl}
               title={current.title}

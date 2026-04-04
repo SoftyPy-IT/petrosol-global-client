@@ -3,6 +3,7 @@
 import Photo from '@/app/components/gallery/Photo'
 import Video from '@/app/components/gallery/Video'
 import Container from '@/app/components/shared/utils/Container'
+import LoadMore from '@/app/components/shared/utils/LoadMore'
 import SectionHeader from '@/app/components/shared/utils/SectionHeader'
 import { useState } from 'react'
 
@@ -50,8 +51,14 @@ export default function Page() {
 
       {/* 🔥 Content */}
       <div className="mt-6">
-        {tab === "photo" && <Photo />}
-        {tab === "video" && <Video />}
+        {tab === "photo" && <div>
+          <Photo />
+          <LoadMore />
+        </div>}
+        {tab === "video" && <div>
+          <Video />
+          <LoadMore />
+        </div>}
       </div>
 
     </Container>
