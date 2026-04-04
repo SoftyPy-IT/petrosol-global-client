@@ -13,14 +13,14 @@ export interface TPhoto {
 
 export default function Photo() {
   const [open, setOpen] = useState(false)
-  const [selectedPhoto, setSelectedPhoto] = useState<TPhoto | null>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   const photos: TPhoto[] = [
     {
       id: "1",
       title: "Team Collaboration",
       shortDescription: "Working together in modern workspace",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1522071820081-4636c8a6c1c3?w=1200&q=80",
     },
     {
       id: "2",
@@ -50,26 +50,37 @@ export default function Photo() {
       id: "6",
       title: "Global Team",
       shortDescription: "Remote collaboration worldwide",
-      image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1553877522-1c7f0c1d7f3d?w=1200&q=80",
     },
   ]
 
-  const handleOpen = (photo: TPhoto) => {
-    setSelectedPhoto(photo)
+  const openModal = (index: number) => {
+    setCurrentIndex(index)
     setOpen(true)
   }
+
+  const next = () => {
+    setCurrentIndex((prev) => (prev + 1) % photos.length)
+  }
+
+  const prev = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? photos.length - 1 : prev - 1
+    )
+  }
+
+  const currentPhoto = photos[currentIndex]
 
   return (
     <>
       {/* GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {photos.map((photo) => (
+        {photos.map((photo, index) => (
           <div
             key={photo.id}
-            onClick={() => handleOpen(photo)}
+            onClick={() => openModal(index)}
             className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl cursor-pointer transition-all duration-300"
           >
-            {/* IMAGE */}
             <div className="relative w-full aspect-square">
               <Image
                 src={photo.image}
@@ -80,8 +91,8 @@ export default function Photo() {
               />
             </div>
 
-            {/* OVERLAY */}
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4">
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
               <h2 className="text-white text-lg font-semibold">
                 {photo.title}
               </h2>
@@ -93,29 +104,71 @@ export default function Photo() {
         ))}
       </div>
 
-      {/* MODAL */}
+      {/* MODAL LIGHTBOX */}
       <ModalContainer open={open} onOpenChange={setOpen}>
-        {selectedPhoto && (
-          <div className="max-w-2xl w-full">
-            {/* IMAGE */}
-            <div className="relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden mb-4">
-              <Image
-                src={selectedPhoto.image}
-                alt={selectedPhoto.title}
-                fill
-                className="object-cover"
-              />
-            </div>
+        <div className="relative max-w-3xl w-full">
 
-            {/* CONTENT */}
-            <h2 className="text-xl font-semibold mb-2">
-              {selectedPhoto.title}
+          {/* ❌ CLOSE BUTTON */}
+          <button
+            onClick={() => setOpen(false)}
+            className="absolute top-3 right-3 z-10 w-9 h-9 bg-black/70 text-white rounded-full flex items-center justify-center hover:bg-black transition"
+          >
+            ✕
+          </button>
+
+          {/* 🖼 IMAGE */}
+          <div className="relative w-full h-[300px] md:h-[450px] rounded-xl overflow-hidden">
+            <Image
+              src={currentPhoto.image}
+              alt={currentPhoto.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+
+          {/* 📄 CONTENT */}
+          <div className="mt-4">
+            <h2 className="text-xl font-semibold">
+              {currentPhoto.title}
             </h2>
             <p className="text-gray-600">
-              {selectedPhoto.shortDescription}
+              {currentPhoto.shortDescription}
             </p>
           </div>
-        )}
+
+          {/* ⬅️➡️ NAVIGATION */}
+          <div className="flex items-center justify-between mt-6">
+
+            <button
+              onClick={prev}
+              className="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
+            >
+              ← Prev
+            </button>
+
+            {/* Pagination dots */}
+            <div className="flex gap-2">
+              {photos.map((_, i) => (
+                <div
+                  key={i}
+                  className={`w-2.5 h-2.5 rounded-full transition ${i === currentIndex
+                      ? "bg-primary scale-125"
+                      : "bg-gray-300"
+                    }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={next}
+              className="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
+            >
+              Next →
+            </button>
+
+          </div>
+        </div>
       </ModalContainer>
     </>
   )
