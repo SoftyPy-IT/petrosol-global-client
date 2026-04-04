@@ -9,7 +9,7 @@ export interface TVideo {
   id: string
   title: string
   shortDescription: string
-  videoUrl: string // YouTube link
+  videoUrl: string
   thumbnail: string
 }
 
@@ -116,7 +116,7 @@ export default function Video() {
         <div className="space-y-5">
 
           {/* YOUTUBE IFRAME */}
-          <div className="relative w-full aspect-video rounded-xl overflow-hidden">
+          <div className="relative w-full aspect-square rounded-xl overflow-hidden">
             <iframe
               src={current.videoUrl}
               title={current.title}

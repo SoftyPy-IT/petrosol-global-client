@@ -25,33 +25,15 @@ export default function Photo() {
     },
     {
       id: "2",
-      title: "Business Meeting",
-      shortDescription: "Corporate strategy discussion",
-      image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=1200&q=80",
-    },
-    {
-      id: "3",
       title: "Developer Desk",
       shortDescription: "Clean coding workspace setup",
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80",
     },
     {
-      id: "4",
+      id: "3",
       title: "Creative Team",
       shortDescription: "Brainstorming session in office",
       image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
-    },
-    {
-      id: "5",
-      title: "Startup Culture",
-      shortDescription: "Fast-paced innovation environment",
-      image: "https://images.unsplash.com/photo-1556761175-7e6c1c0f0f0a?w=1200&q=80",
-    },
-    {
-      id: "6",
-      title: "Remote Work",
-      shortDescription: "Global distributed team collaboration",
-      image: "https://images.unsplash.com/photo-1553877522-1c7f0c1d7f3d?w=1200&q=80",
     },
   ]
 
@@ -114,7 +96,7 @@ export default function Photo() {
       </div>
 
       {/* MODAL */}
-      <ModalContainer open={open} onOpenChange={setOpen} size="xl">
+      <ModalContainer open={open} onOpenChange={setOpen} size="xl" title={current.title}>
         <div className="space-y-5">
 
           {/* IMAGE */}
@@ -131,7 +113,6 @@ export default function Photo() {
 
           {/* INFO */}
           <div>
-            <h2 className="text-lg font-semibold">{current.title}</h2>
             <p className="text-gray-600">{current.shortDescription}</p>
           </div>
 
