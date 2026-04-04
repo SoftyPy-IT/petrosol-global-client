@@ -112,11 +112,11 @@ export default function Photo() {
       </div>
 
       {/* MODAL LIGHTBOX */}
-      <ModalContainer open={open} onOpenChange={setOpen} size="xl">
+      <ModalContainer open={open} onOpenChange={setOpen} size="xl" title={current.title}>
         <div className="space-y-5">
 
           {/* IMAGE */}
-          <div className="relative w-full h-[280px] md:h-[450px] rounded-xl overflow-hidden">
+          <div className="relative w-full aspect-square rounded-xl overflow-hidden">
             <Image
               src={current.image}
               alt={current.title}
@@ -129,7 +129,6 @@ export default function Photo() {
 
           {/* INFO */}
           <div>
-            <h2 className="text-xl font-semibold">{current.title}</h2>
             <p className="text-gray-600">{current.shortDescription}</p>
           </div>
 

@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 
 interface ModalProps {
   open: boolean;
+  title?: string;
   onOpenChange: (open: boolean) => void;
   children: React.ReactNode;
   size?: "sm" | "md" | "lg" | "xl";
@@ -12,6 +13,7 @@ interface ModalProps {
 
 export default function ModalContainer({
   open,
+  title,
   onOpenChange,
   children,
   size = "md",
@@ -85,6 +87,11 @@ export default function ModalContainer({
             transition-transform duration-300
           `}
         >
+
+          {title && (
+            <h2 className="text-xl font-semibold">{title}</h2>
+          )}
+
           {/* Close Button */}
           <button
             onClick={() => onOpenChange(false)}

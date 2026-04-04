@@ -111,7 +111,7 @@ export default function Video() {
       </div>
 
       {/* MODAL */}
-      <ModalContainer open={open} onOpenChange={setOpen} size="xl">
+      <ModalContainer open={open} onOpenChange={setOpen} size="xl" title={current.title}>
         <div className="space-y-5">
 
           {/* YOUTUBE IFRAME */}
@@ -127,7 +127,6 @@ export default function Video() {
 
           {/* INFO */}
           <div>
-            <h2 className="text-xl font-semibold">{current.title}</h2>
             <p className="text-gray-600">{current.shortDescription}</p>
           </div>
 
