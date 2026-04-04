@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import ModalContainer from "../shared/utils/ModalContainer"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 export interface TVideo {
   id: string
@@ -137,7 +138,7 @@ export default function Video() {
               onClick={prev}
               className="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
             >
-              ← Prev
+              <ChevronLeft />
             </button>
 
             {/* DOTS */}
@@ -156,7 +157,7 @@ export default function Video() {
               onClick={next}
               className="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
             >
-              Next →
+              <ChevronRight />
             </button>
           </div>
         </div>

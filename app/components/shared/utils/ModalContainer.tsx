@@ -88,18 +88,20 @@ export default function ModalContainer({
           `}
         >
 
-          {title && (
-            <h2 className="text-xl font-semibold">{title}</h2>
-          )}
+          <div className="flex items-center justify-between mb-2">
+            {title && (
+              <h2 className="text-xl font-semibold">{title}</h2>
+            )}
 
-          {/* Close Button */}
-          <button
-            onClick={() => onOpenChange(false)}
-            className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition"
-            aria-label="Close modal"
-          >
-            <X size={20} />
-          </button>
+            {/* Close Button */}
+            <button
+              onClick={() => onOpenChange(false)}
+              className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition"
+              aria-label="Close modal"
+            >
+              <X size={20} />
+            </button>
+          </div>
 
           {/* Modal Content */}
           {children}

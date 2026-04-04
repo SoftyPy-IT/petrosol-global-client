@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import ModalContainer from "../shared/utils/ModalContainer"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 export interface TPhoto {
   id: string
@@ -20,7 +21,7 @@ export default function Photo() {
       id: "1",
       title: "Team Collaboration",
       shortDescription: "Modern workspace teamwork environment",
-      image: "https://images.unsplash.com/photo-1522071820081-4636c8a6c1c3?w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=80",
     },
     {
       id: "2",
@@ -38,13 +39,13 @@ export default function Photo() {
       id: "4",
       title: "Creative Team",
       shortDescription: "Brainstorming session in office",
-      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
     },
     {
       id: "5",
       title: "Startup Culture",
       shortDescription: "Fast-paced innovation environment",
-      image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1556761175-7e6c1c0f0f0a?w=1200&q=80",
     },
     {
       id: "6",
@@ -67,7 +68,6 @@ export default function Photo() {
     setIndex((prev) => (prev === 0 ? photos.length - 1 : prev - 1))
   }
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (!open) return
@@ -105,14 +105,16 @@ export default function Photo() {
 
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
               <h3 className="text-white font-semibold">{photo.title}</h3>
-              <p className="text-gray-200 text-sm">{photo.shortDescription}</p>
+              <p className="text-gray-200 text-sm">
+                {photo.shortDescription}
+              </p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* MODAL LIGHTBOX */}
-      <ModalContainer open={open} onOpenChange={setOpen} size="xl" title={current.title}>
+      {/* MODAL */}
+      <ModalContainer open={open} onOpenChange={setOpen} size="xl">
         <div className="space-y-5">
 
           {/* IMAGE */}
@@ -129,6 +131,7 @@ export default function Photo() {
 
           {/* INFO */}
           <div>
+            <h2 className="text-lg font-semibold">{current.title}</h2>
             <p className="text-gray-600">{current.shortDescription}</p>
           </div>
 
@@ -137,9 +140,9 @@ export default function Photo() {
 
             <button
               onClick={prev}
-              className="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
+              className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
             >
-              ← Prev
+              <ChevronLeft />
             </button>
 
             {/* DOTS */}
@@ -156,11 +159,12 @@ export default function Photo() {
 
             <button
               onClick={next}
-              className="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
+              className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
             >
-              Next →
+              <ChevronRight />
             </button>
           </div>
+
         </div>
       </ModalContainer>
     </>
