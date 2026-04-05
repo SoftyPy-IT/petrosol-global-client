@@ -1,9 +1,10 @@
 import Container from "../shared/utils/Container";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { socialLinks } from "./social-links";
+import Link from "next/link";
 
 export default function TopBar() {
-  
+
   return (
     <div className="hidden md:block w-full bg-(--primary-dark) text-(--text-light) text-xs md:text-sm">
 
@@ -36,16 +37,13 @@ export default function TopBar() {
 
         {/* 🔥 RIGHT INFO */}
         <div className="flex items-center gap-4 w-full lg:w-auto justify-between lg:justify-end">
-
-
-
-          {/* Social Links */}
-          <div className="flex items-center gap-3 text-white/80">
-            <a target="_blank" href="https://www.facebook.com/petrosolgloballtd" className="hover:text-(--primary-light) transition text-xl"><FaFacebook /></a>
-            <a target="_blank" href="https://www.linkedin.com/company/petrosol-global-ltd" className="hover:text-(--primary-light) transition text-xl"><FaLinkedin /></a>
-            <a target="_blank" href="https://twitter.com/petrosolgloballtd" className="hover:text-(--primary-light) transition text-xl"><FaTwitter /></a>
-
-          </div>
+          {
+            socialLinks.map((link, index) => (
+              <Link key={index} href={link.href} className="hover:text-(--primary-light) transition text-xl">
+                {link.icon}
+              </Link>
+            ))
+          }
 
         </div>
 

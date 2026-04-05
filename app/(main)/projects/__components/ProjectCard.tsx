@@ -1,20 +1,17 @@
 import Image from "next/image"
 import Link from "next/link"
-import React from "react"
 
-export type ActivityCardProps = {
-  title: string
-  image: string
-  description: string
-  type: string
+export type ProjectCardProps = {
+  item: {
+    title: string
+    image: string
+    description?: string
+    type?: string
+  }
 }
 
-export default function ActivityCard({
-  title,
-  image,
-  description,
-  type,
-}: ActivityCardProps) {
+export default function ProjectCard({ item }: ProjectCardProps) {
+  const { title, image, description } = item
   return (
     <div className="card overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 
@@ -49,7 +46,7 @@ export default function ActivityCard({
         <div className="flex justify-end pt-3">
 
           {/* View Details Button */}
-          <Link href={`/activities/${title}`}>
+          <Link href={`/projects/${title}`}>
             <button
               className="btn btn-primary text-xs px-4 py-2"
             >

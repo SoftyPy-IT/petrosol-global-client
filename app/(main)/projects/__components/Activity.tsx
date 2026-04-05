@@ -1,7 +1,6 @@
 "use client"
-
-import React, { useState } from "react"
-import ActivityCard from "./ActivityCard"
+import { useState } from "react"
+import ProjectCard from "./ProjectCard"
 
 export type TActivity = {
   title: string
@@ -77,7 +76,7 @@ export default function Activity() {
       {/* Cards */}
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredActivities.map((activity) => (
-          <ActivityCard key={activity.title} {...activity} />
+          <ProjectCard key={activity.title} item={activity} />
         ))}
       </div>
 

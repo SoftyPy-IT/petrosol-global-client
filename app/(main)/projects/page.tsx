@@ -8,7 +8,7 @@ export default function page() {
   return (
     <Container className='py-10'>
       <SectionHeader
-        title="Activities"
+        title="Our Projects"
         description="Our projects categorized by development status."
       />
       <Activity />

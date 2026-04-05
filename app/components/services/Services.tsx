@@ -1,39 +1,46 @@
 import { Sun, Building2, Ship, Cpu, Truck, Lightbulb } from "lucide-react";
+import Link from "next/link";
 
 export default function Services() {
   const services = [
     {
       title: "Solar Energy Solutions",
+      href: "/industries/solar-energy-solutions",
       desc: "Design, procurement, and large-scale deployment of renewable solar systems for industrial and commercial clients.",
       icon: Sun,
       tag: "Energy",
     },
     {
       title: "Infrastructure Development",
+      href: "/industries/infrastructure-development",
       desc: "End-to-end planning and execution of modern infrastructure projects across global markets.",
       icon: Building2,
       tag: "Infrastructure",
     },
     {
       title: "Ship Handling",
+      href: "/industries/ship-handling",
       desc: "Professional vessel coordination, berthing, and marine support services for commercial and industrial fleets.",
       icon: Ship,
       tag: "Maritime",
     },
     {
       title: "Berth Operating",
+      href: "/industries/berth-operating",
       desc: "Efficient berth scheduling, cargo coordination, and port operations management for seamless turnarounds.",
       icon: Cpu,
       tag: "Port Ops",
     },
     {
       title: "Logistics & Supply",
+      href: "/industries/logistics-supply",
       desc: "Integrated global supply chain and logistics solutions ensuring timely, reliable delivery across sectors.",
       icon: Truck,
       tag: "Logistics",
     },
     {
       title: "Consulting & Strategy",
+      href: "/industries/consulting-strategy",
       desc: "Expert advisory in energy, human resources, and terminal management to accelerate sustainable growth.",
       icon: Lightbulb,
       tag: "Advisory",
@@ -112,9 +119,10 @@ export default function Services() {
           {services.map((service, i) => {
             const Icon = service.icon;
             return (
-              <div
+              <Link
                 key={i}
-                className="group relative bg-white rounded-2xl p-7 border border-[var(--border)] overflow-hidden transition-all duration-300 hover:-translate-y-1.5"
+                href={service.href}
+                className="cursor-pointer group relative bg-white rounded-2xl p-7 border border-[var(--border)] overflow-hidden transition-all duration-300 hover:-translate-y-1.5"
                 style={{ boxShadow: "0 2px 16px var(--shadow)" }}
               >
                 <div
@@ -163,7 +171,7 @@ export default function Services() {
                   className="absolute bottom-0 left-0 h-[3px] w-0 group-hover:w-full transition-all duration-500 rounded-b-2xl"
                   style={{ background: "var(--primary)" }}
                 />
-              </div>
+              </Link>
             );
           })}
         </div>
